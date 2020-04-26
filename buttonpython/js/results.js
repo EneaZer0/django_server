@@ -14,6 +14,11 @@ if (cur != "") {
 	arr[nxt++] = cur;
 }
 
+
+p = document.createElement("p");
+p.textContent = 'success'
+document.appendChild(p)
+
 var req = new XMLHttpRequest();
 req.overrideMimeType(domain);
 req.open('GET', "http://35.197.239.192/text-search-result/", true);
