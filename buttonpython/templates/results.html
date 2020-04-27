@@ -42,6 +42,8 @@
             var jsonResponse = JSON.parse(req.responseText);
             console.log(jsonResponse);
             document.body.innerHTML = ""
+            var text = document.createElement("p");
+            text.textContent = 'success'
             for (var i = 0; i < jsonResponse.length; i++) {
                 var p = document.createElement("p");
                 p.textContent = jsonResponse[i].SOURCE;
