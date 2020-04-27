@@ -25,19 +25,22 @@
             arr[nxt++] = cur;
         }
 
+        while (nxt < 5) {
+            arr[nxt++] = "";
+        }
 
         p = document.createElement("p");
         for (var i = 0; i < nxt; i++){
-            p.textContent += arr[1] + " "
+            p.textContent += arr[i] + " "
         }
         document.body.appendChild(p)
 
         var req = new XMLHttpRequest();
         req.overrideMimeType(domain);
-        req.open('GET', "http://35.197.239.192/text-search-result/", true);
+        req.open('GET', "https://34.89.30.97/phpFakeOutServer/word_search"+"?word1=" +arr[0] +"?word2=" +arr[1]+"?word3=" +arr[2]+"?word4=" +arr[3]+"?word5="+arr[4] , true);
         req.onload  = function() {
             var jsonResponse = JSON.parse(req.responseText);
-
+            console.log(jsonResponse);
         };
         req.send(null);
 
