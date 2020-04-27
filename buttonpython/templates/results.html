@@ -43,12 +43,13 @@
             console.log(jsonResponse);
             document.body.innerHTML = ""
             var text = document.createElement("p");
-            text.textContent = "Here you can find the related articles to the one you were looking at: " <br> "We have found "+ jsonResponse.length + " articles"
+            text.textContent = "Here you can find the related articles to the one you were looking at: We have found "+ jsonResponse.length + " articles"
             document.body.appendChild(text)
             for (var i = 0; i < jsonResponse.length; i++) {
-                var p = document.createElement("p");
-                p.textContent = jsonResponse[i].SOURCE;
-                document.body.appendChild(p);
+                var url = document.createElement("a");
+                url.href = jsonResponse[i].SOURCE;
+                url.innerHTML = jsonResponse[i].SOURCE;
+                document.body.appendChild(url);
             }
         };
         req.send(null);
