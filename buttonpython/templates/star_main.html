@@ -26,18 +26,23 @@
             food = createVector(floor(random(cols)), floor(random(rows)));
             food.mult(scl);
         }
+
+        function mousePressed() {
+            snake.total++;
+        }
         
         function draw() {
             background(51);
-            snake.update();
-            snake.show();
 
             if (snake.eat(food)) {
                pickLocation();
             }
+            snake.death();
+            snake.update();
+            snake.show();
 
             fill(255, 0, 100);
-            rect(food.x, food.y, scl, scl)
+            rect(food.x, food.y, scl, scl);
         }
 
         function keyPressed() {
@@ -71,6 +76,18 @@
                     return true;
                 } else {
                     return false;
+                }
+            }
+
+            this.death = function () {
+                for(var i = 0; i < this.tail.length; i++){
+                    var pos = this.tail[i];
+                    var d = dist(this.x,this.y, pos.x, pos.y);
+                    if(d < 1){
+                        console.log('starting over');
+                        this.total = 0;
+                        this.tail = [];
+                    }
                 }
             }
 
