@@ -75,9 +75,10 @@
             }
 
             this.update = function () {
-
-                for (var i = 0; i < this.total-1; i++) {
+                if (this.total === this.tail.length) {
+                    for (var i = 0; i < this.total-1; i++) {
                     this.tail[i] = this.tail[i+1];
+                    }
                 }
 
                 this.tail[this.total-1] = createVector(this.x, this.y);
