@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^text-search-result', views.textSearch),
 
     url(r'^$', views.button, name='homeScript'),
+
+    url(r'^starDisplay', views.buttonStar, name='starScript'),
 ]

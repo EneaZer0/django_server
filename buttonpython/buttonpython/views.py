@@ -16,6 +16,10 @@ def buttonText(request):
     return render(request, 'text_kw_finder.html')
 
 
+def buttonStar(request):
+    return render(request, 'star_main.html')
+
+
 def urlSearch(request):
     textArray = []
     text = ''
