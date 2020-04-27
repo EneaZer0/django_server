@@ -17,7 +17,7 @@ if (cur != "") {
 
 p = document.createElement("p");
 p.textContent = 'success'
-document.appendChild(p)
+document.body.appendChild(p)
 
 var req = new XMLHttpRequest();
 req.overrideMimeType(domain);
