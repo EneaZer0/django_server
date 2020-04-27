@@ -41,6 +41,12 @@
         req.onload  = function() {
             var jsonResponse = JSON.parse(req.responseText);
             console.log(jsonResponse);
+            document.body.innerHTML = ""
+            for (var i = 0; i < jsonResponse.length; i++) {
+                var p = document.createElement("p");
+                p.textContent = jsonResponse[i].SOURCE;
+                document.body.appendChild(p);
+            }
         };
         req.send(null);
 
