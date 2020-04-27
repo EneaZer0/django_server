@@ -27,7 +27,9 @@
 
 
         p = document.createElement("p");
-        p.textContent = 'success'
+        for (var i = 0; i < nxt; i++){
+            p.textContent += arr[i] + " "
+        }
         document.body.appendChild(p)
 
         var req = new XMLHttpRequest();
